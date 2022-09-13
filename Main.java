@@ -10,6 +10,8 @@ public class Main {
             .map(bus -> bus.gottenOff(2)) // 八雲さん家
             .map(Bus::getPassengerCount)
             .orElse(0d);
+
+        assert answer == 0;
     }
 
     private static Optional<Bus> getGensokyoBus() {
@@ -17,14 +19,14 @@ public class Main {
     }
 
     private static class Bus {
-        public double getPassengerCount() {
-            return passengerCount;
-        }
-
         private final double passengerCount;
 
         Bus(final double passengerCount) {
             this.passengerCount = passengerCount;
+        }
+
+        double getPassengerCount() {
+            return passengerCount;
         }
 
         Bus gottenOn(final double passengerCount) {
